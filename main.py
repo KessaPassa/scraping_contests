@@ -1,3 +1,4 @@
+import requests
 from bs4 import BeautifulSoup
 import schedule
 import time
@@ -12,9 +13,9 @@ def ajust_one_message(message):
 
 # コンテスト情報をスクレイピングする
 def scraping_contest_info():
-    # url = 'https://atcoder.jp/home'
-    # html = requests.get(url).text
-    html = open('atcoder.html')
+    url = 'https://atcoder.jp/home'
+    html = requests.get(url).text
+    # html = open('atcoder.html')
 
     soup = BeautifulSoup(html, 'html.parser')
     div = soup.find('div', attrs={'id': 'contest-table-upcoming'})
